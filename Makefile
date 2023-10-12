@@ -1,24 +1,27 @@
 NAME = parser
-Header = get_next_line.h
-
-FILES = parser.c get_next_line.c get_next_line_utils.c
+HEADER = parser.h
+FILES = parser.c get_next_line.c get_next_line_utils.c map.c
 
 FILES_O = $(FILES:.c=.o)
-
-%.o: %.c
-	gcc -Wall -Wextra -Werror  -fsanitize=address -g -c $< -o $@
-
-$(NAME): $(FILES_O)
-		gcc $(FILES_O)  -Wall -Wextra -Werror -fsanitize=address -g -o $(NAME)
+LIBFT = ./libft/libft.a
 
 all: $(NAME)
 
+$(LIBFT):
+	make -C libft
+
+%.o: %.c	
+	gcc -Wall -Wextra -Werror -fsanitize=address -g -Ilibft -c $< -o $@
+
+$(NAME): $(FILES_O) $(LIBFT)	
+	gcc $(FILES_O) -Wall -Wextra -Werror -fsanitize=address -g $(LIBFT) -o $(NAME)
+
 clean:
-	rm -rf $(Files_O)
+	rm -rf $(FILES_O)
 
 fclean: clean
 	rm -rf $(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
-.PHONY: all bonus clean fclean re 
+.PHONY: all clean fclean re

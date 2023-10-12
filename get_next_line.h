@@ -6,7 +6,7 @@
 /*   By: asekkak <asekkak@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 12:53:17 by asekkak           #+#    #+#             */
-/*   Updated: 2022/11/01 10:27:50 by asekkak          ###   ########.fr       */
+/*   Updated: 2023/10/12 11:51:29 by asekkak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,15 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <limits.h>
+# include "./libft/libft.h"
 
 char	*get_cur_line(char *str);
 char	*get_to_next(char *str);
 char	*get_next_line(int fd);
-int		ft_strlen(char *str);
-char	*ft_strdup(char *str);
-char	*ft_strjoin(char *s1, char *s2);
+// int		ft_strlen(char *str);
+// char	*ft_strdup(char *str);
+// char	*ft_strjoin(char *s1, char *s2);
 char	*ft_copy(char *s1, char *s2, char *ptr);
-int		ft_strchr(char *str, int c);
+// int		ft_strchr(char *str, int c);
 
 #endif
